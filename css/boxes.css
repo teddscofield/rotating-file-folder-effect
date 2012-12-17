@@ -1,0 +1,222 @@
+
+/*
+ * dashed border definitions
+ */
+h1 { text-align:center; margin-top:20px; font-size: 1.4em; font-weight:bold; }
+
+.border {
+  border-width: 1px;
+  border-style: solid;
+}
+.border-dash {
+  border-width: 1px;
+  border-style: dashed;
+}
+
+/*
+ * Primary container to work within
+ */
+
+#container {
+  width:600px;
+  height:600px;
+  position: relative;
+  margin: auto;
+}
+
+/*
+ * initial "Box" definitions
+ *
+ * Defines the static and some of the initial portion of the box's styles
+ * So height, position type, background color stay the same.
+ * Initial z-index order is set here.
+ *
+ * These are tied to id's since the number of boxes is fixed, only their
+ * positions and dimensions will change during the animation.
+ */
+#box1 {
+  height: 200px;
+  position: absolute;
+
+}
+
+#box2 {
+  height: 200px;
+  position: absolute;
+
+}
+
+#box3 {
+  height: 200px;
+  position: absolute;
+}
+
+#box4 {
+  height: 200px;
+  position: absolute;
+}
+
+
+
+/*
+
+spot #4 (back-spot)
+spot #3
+spot #2
+spot #1 (front-spot)
+
+ */
+
+
+.spot-1 { 
+  bottom: 200px;
+  width: 240px;
+  right: 180px; 
+  z-index: 40;
+  background-color: #ECE1A8;
+}
+
+.spot-2 { 
+  bottom: 225px;   
+  width: 220px;
+  right: 190px; 
+  z-index: 30;
+  background-color: #BCB178;
+}
+
+.spot-3 { 
+  bottom: 250px;   
+  width: 200px;
+  right: 200px; 
+  z-index: 20;
+  background-color: #8C8148;  
+}
+
+.spot-4 { 
+  bottom: 275px;   
+  width: 196px;
+  right: 202px; 
+  z-index: 10;
+  background-color: #6C6128;  
+}
+
+
+
+/*
+ * Move slot 2 to slot 1
+ */
+
+@-webkit-keyframes spot-2-to-1 {
+  0%{
+    width: 220px;
+    right: 190px;
+    bottom:225px;
+    z-index: 30;
+    background-color: #BCB178;
+
+  }
+  99% {
+    z-index: 40;
+  }
+  100%{
+    width: 240px;
+    right: 180px;
+    bottom:200px;
+    background-color: #ECE1A8;
+  }
+}
+.move-spot-2-to-1 {
+  -webkit-animation:spot-2-to-1 .75s ease-in-out;
+}
+
+
+
+/*
+ * Move slot 3 to slot 2
+ */
+
+@-webkit-keyframes spot-3-to-2 {
+  0%{
+    width: 200px;
+    right: 200px;
+    bottom:250px;
+    z-index: 20;
+    background-color: #8C8148;
+
+  }
+  99% {
+    z-index: 30;
+  }
+  100%{
+    width: 220px;
+    right: 190px;
+    bottom:225px;
+    background-color: #BCB178;
+  }
+}
+.move-spot-3-to-2 {
+  -webkit-animation:spot-3-to-2 .75s ease-in-out;
+}
+
+
+/*
+ * Move slot 4 to slot 3
+ */
+@-webkit-keyframes spot-4-to-3 {
+  0%{
+    bottom:275px;
+    width: 196px;
+    right: 202px; 
+    z-index: 10;
+    background-color: #6C6128;
+
+  }
+  99% {
+    z-index: 20;
+  }
+  100%{
+    width: 200px;
+    right: 200px;
+    bottom:250px;
+    background-color: #8C8148;
+  }
+}
+.move-spot-4-to-3 {
+  -webkit-animation: spot-4-to-3 .75s ease-in-out;
+}
+
+/*
+ * Move slot 1 to slot 4
+ */
+@-webkit-keyframes spot-1-to-4 {
+  0% {
+    width: 240px;
+    right: 180px;
+    bottom:200px;
+    z-index: 40;
+    background-color: #ECE1A8;
+  }
+  50% {
+    opacity:0.15;
+  }
+  98% {
+    bottom: 125px;
+    opacity:0.0;
+    background-color: #ECE1A8;
+  }
+  99% {
+    width: 240px;
+    right: 180px;
+    z-index: 10;
+  }
+  100% {
+    width: 200px;
+    right: 200px;
+    bottom:275px;
+    background-color: #6C6128;
+  }
+}
+
+.move-spot-1-to-4 {
+  -webkit-animation: spot-1-to-4 .75s ease-in-out;
+}
